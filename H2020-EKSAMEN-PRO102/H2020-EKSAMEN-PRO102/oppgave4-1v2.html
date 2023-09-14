@@ -1,0 +1,156 @@
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+	       <meta charset="UTF-8">
+	       <title>Læringsspill om dyr</title>
+        </head>   
+            <body>
+                <h4>Hvilken av dyrene vil du lære mer om?</h4>
+                
+                
+                <img id="tiger-btn"  type="Button" src="images/tiger.jpeg"  height="200px" width="250px"/>
+                <img id="cat-btn" type="Button" src="images/cat.jpeg" height="200px" width="250px"/>
+                <img id="lion-btn" type="Button" src="images/lion.jpeg" height="200px" width="250px"/>
+                <img id="cheetah-btn" type="Button" src="images/cheetah.jpeg" height="200px" width="250px"/>
+                <img id="puma-btn" type="Button" src="images/puma.jpeg" height="200px" width="250px"/>
+                
+                <br> <!--ID FOR VIS&SKJUL INFO OM DYRENE-->  
+                <button id="hideInfo" onclick="hideP()">Skjul info</button>
+                <p id="dyr-info-p">Trykk på et av dyrene for å lese om de! </p>
+                <br>
+           
+                
+            <h3>Quiz!</h3> <!--ID FOR ANTALL POENG OG PREMIER-->
+                <p id="number-of-points">Antall poeng: 0</p>
+                <ul id="prizez-ul">
+            
+                </ul> 
+                
+                <!--SPØRSMÅLENE TIL QUIZEN-->
+                <p>Løvene er de raskeste kattedyrene</p>
+                <input id="correct-answ-btn1" type="button" value="Usant">
+                <input id="false-answ-btn1" type="button" value="Sant">
+              
+                <br>
+                <p>De kattedyrene som bringer lykke er katter</p>
+                <input id="false-answ-btn2" type="button" value="Usant">     
+                <input id="correct-answ-btn2" type="button" value="Sant">
+                 
+                <br>
+                <p>Tigerene er størst av kattedyrene</p>
+                <input id="correct-answ-btn3" type="button" value="Sant">
+                <input id="false-answ-btn3" type="button" value="Usant">
+               
+                <br>
+                <p>Pumaene har et selskap oppkalt etter seg</p>
+                 <input id="correct-answ-btn4" type="button" value="Sant">
+                <input id="false-answ-btn4" type="button" value="Usant">
+              
+                <br>
+                <p>Gepardene lever i flokk</p>
+                 <input id="false-answ-btn5" type="button" value="Sant">     
+                <input id="correct-answ-btn5" type="button" value="Usant">
+               
+                    
+                
+    
+        
+	           <script>
+                    //BILDEKNAPPENE
+                    var tigerBtn = document.getElementById("tiger-btn");
+                    var catBtn =document.getElementById("cat-btn");
+                    var lionBtn = document.getElementById("lion-btn");
+                    var cheetahBtn = document.getElementById("cheetah-btn");
+                    var pumaBtn = document.getElementById("puma-btn");
+                   
+                   //BESTEMMER HVA SOM SKJER NÅR DU TRYKKER PÅ BILDEKNAPPENE
+                    tigerBtn.onclick = tigerBtnClicked;
+                    catBtn.onclick = catBtnClicked;
+                    lionBtn.onclick = lionBtnClicked;
+                    cheetahBtn.onclick = cheetahBtnClicked;
+                    pumaBtn.onclick = pumaBtnClicked;
+                
+                   
+                   //ID FOR INFORMASJON 
+                    var dyrInfoP = document.getElementById("dyr-info-p");
+                   //INFORMASJON
+                    var tigerInfo = "Tiger er det største kattedyret i verden. Alle tigre har sitt eget mønster i pelsen og de er alle unike! Tigere er utrydningstruet. Spyttet til tigrene er anitseptisk, som betyr at det er bakteriedrepende.";
+                    var catInfo ="Katt er et lite rovpattedyr i kattefamilien. Katter kan snu ørene sine 180 grader. Mange mener at katter bringer lykke. Mjauing er ikke et medfødt kattespråk, de utviklet mjauing for å kunne kommunisere med mennesker!";
+                    var lionInfo= "Løven er et sosialt kattedyr. Løvene bor i Afrika og i Asia. Løvene er de eneste kattedyrene som lever i grupper. Hannløvene beskytter territoriet deres, mens hunnløvene er ute å jakter ";
+                    var cheetahInfo = "Geparden er et stort kattedyr. Gepardene finnes i Afrika, syd for sahara og nordøstlige Iran. Geparden er verdens kjappeste dyr, og er i stand til å akselerere fra 0-80 km/t i løpet av tre sekunder";
+                    var pumaInfo = "Puma er et stort rovpattedyr i kattefamilien. De holder til i både Nord- og Sør-Amerika. Pumaene er ekstremt tilpasningsdyktig og de kan leve i et bredt spekter av habitater, fra skog til ørken. Det finnes faktisk også et selskap som kaller seg puma som selger sportsklær!";
+                   
+                    //INFORMASJON FUNKSJONER
+                    function tigerBtnClicked() {
+                        dyrInfoP.innerHTML = tigerInfo;   
+                    };
+                    function catBtnClicked(){
+                        dyrInfoP.innerHTML = catInfo;
+                    };
+                    function lionBtnClicked(){
+                        dyrInfoP.innerHTML = lionInfo;
+                    };
+                    function cheetahBtnClicked(){
+                        dyrInfoP.innerHTML = cheetahInfo;
+                    };
+                    function pumaBtnClicked(){
+                        dyrInfoP.innerHTML = pumaInfo;
+                    };
+                   
+                    //SKJUL INFO 
+                  function hideP(){
+                       dyrInfoP.innerHTML = "";
+                    };
+                   
+
+                   
+                   //POENGTELLER, ANTALLPOENG OG "PREMIER"
+                    var counter = 0 ;
+                    var numberOfPoints = document.getElementById("number-of-points");
+                    var prizezUl = document.getElementById("prizez-ul");
+                   
+                    //QUIZ KNAPPENE
+                    var correctAnswBtn1 = document.getElementById("correct-answ-btn1");
+                    var falseAnswBtn1 = document.getElementById("false-answ-btn1");
+                    var correctAnswBtn2 = document.getElementById("correct-answ-btn2");
+                    var falseAnswBtn2 = document.getElementById("false-answ-btn2");
+                    var correctAnswBtn3 = document.getElementById("correct-answ-btn3");
+                    var falseAnswBtn3 = document.getElementById("false-answ-btn3");
+                    var correctAnswBtn4 = document.getElementById("correct-answ-btn4");
+                    var falseAnswBtn4 = document.getElementById("false-answ-btn4");
+                    var correctAnswBtn5 = document.getElementById("correct-answ-btn5");
+                    var falseAnswBtn5 = document.getElementById("false-answ-btn5");
+                   
+                
+                    //HVA SOM SKJER NÅR DU TRYKKER PÅ KNAPPEN(E)
+                    correctAnswBtn1.onclick = correctAnswBtnClicked;
+                    correctAnswBtn2.onclick = correctAnswBtnClicked;
+                    correctAnswBtn3.onclick = correctAnswBtnClicked;
+                    correctAnswBtn4.onclick = correctAnswBtnClicked;
+                    correctAnswBtn5.onclick = correctAnswBtnClicked;
+                    falseAnswBtn1.onclick = falseAnswBtnClicked;
+                    falseAnswBtn2.onclick = falseAnswBtnClicked;
+                    falseAnswBtn3.onclick = falseAnswBtnClicked;
+                    falseAnswBtn4.onclick = falseAnswBtnClicked;
+                    falseAnswBtn5.onclick = falseAnswBtnClicked;
+         
+                   
+                   
+                   //RIKTIG SVAR 
+                   function correctAnswBtnClicked (){
+                        counter++;
+                        numberOfPoints.innerHTML = `Antall poeng: ${counter}`;
+                       
+                        if( counter == 3 ){
+                            prizezUl.innerHTML = "<li>3 poeng! Godt jobbet.</li>";
+                        }else if( counter == 5 ){
+                            prizezUl.innerHTML ="<li>5 poeng! <img src='images/grandprize.jpg' width='100px'></li>";
+                        }    
+                   };
+                   //FEIL SVAR
+                   function falseAnswBtnClicked (){
+                      alert("Feil svar");
+                   };    
+            </script>
+        </body>
+    </html>

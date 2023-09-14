@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" href="Style/shoppingstyle.css">
+	<title>Oppgave 2: Shopping</title>
+</head>
+<body>
+    <main>
+        <h1>LAG DIN EGEN LISTE FOR DIN NESTE HANDLETUR:</h1>
+        <br>
+        <input type="text" id="input-text">
+        <button id="add-to-list" onclick="addItem()">Legg til</button>
+        <br><br>
+        <div id="output-div">
+        <ul id="outputLi"></ul>
+        </div>
+        
+    </main>
+    <script>
+        //variabler
+        var addToList = document.getElementById("add-to-list");
+        var outputDiv = document.getElementById("output-div");
+        var inputText = document.getElementById("input-text");
+        
+        //funksjon
+        //Legger til en <li> med det personen skriver i input (inputText.value) og lager en button som sletter objektet dersom man ønsker
+        function addItem(){
+            outputLi.innerHTML += `<li>${inputText.value} <button onclick="Delete(this);">slett</button> </li><br>` ;
+            inputText.value="";
+        }
+        //bruker removeChild for å fjerne <li>
+        function Delete(selected){
+            selected.parentNode.parentNode.removeChild(selected.parentNode);
+        } 
+        
+    </script>
+</body>
+</html>

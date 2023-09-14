@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 3. Matlageret (25%)</title>
+</head>
+
+<body>
+
+    <h3>Matlageret</h3>
+    <label>Produktnavn</label>
+    <input id="get-article-name-input" type="text"><br>
+    <label>Antall på lager</label>
+    <input id="get-article-amount-input" type="text"><br>
+    <input id="add-article-to-array-btn" type="button" value="Legg til produkt i array">
+    <input id="get-article-from-array-btn" type="button" value="Vis produkter du har lagt til">
+
+    <div id="output-div"></div>
+
+    <script>
+        var getArticleFromArrayBtn = document.getElementById("get-article-from-array-btn");
+        var addArticleToArrayBtn = document.getElementById("add-article-to-array-btn");
+        var getArticleNameFromInput = document.getElementById("get-article-name-input");
+        var getArticleAmountFromInput = document.getElementById("get-article-amount-input");
+
+        var outputDiv = document.getElementById("output-div");
+
+        getArticleFromArrayBtn.onclick = getArticleFromArray
+        addArticleToArrayBtn.onclick = addArticleToArray
+
+
+        /* Besvarelse legges til før og/eller etter funksjonen */
+
+        function sortByAmount(a, b) {
+            if (a.amount < b.amount) {
+                return 1;
+            }
+            if (a.amount > b.amount) {
+                return -1;
+            }
+            return 0;
+        }
+
+        function addArticleToArray() {
+
+            var article = {
+                productName: getArticleNameFromInput.value,
+                amount: getArticleAmountFromInput.value
+            }
+
+            foodArray.push(article)
+            foodArray.article.amount.sort(sortByAmount)
+        }
+        
+
+        function getArticleFromArray() {
+            var htmlTxt = "";
+
+            // foodArray.sort(sortByAmount('amount'.desc, 'productName'.desc))
+            foodArray.sort(sortByAmount)
+            console.log(foodArray)
+            for (i = 0; i < foodArray.length; i++) {
+                var foodObject = foodArray[i];
+                for (var food in foodObject) {
+                    htmlTxt += food + ": " + foodObject[food] + "<br />";
+                }
+            }
+            outputDiv.innerHTML = htmlTxt;
+        }
+
+        let foodArray = []
+
+    </script>
+</body>
+
+</html>
